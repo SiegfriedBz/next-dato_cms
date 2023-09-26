@@ -16,7 +16,10 @@ const circleVariants = {
 const MotionImage = motion(Image)
 
 const Circle = ({ courses }) => {
-  const [circleCenter, setCircleCenter] = useState({ x: 0, y: 0 })
+  const [circleCenter, setCircleCenter] = useState({
+    x: undefined,
+    y: undefined,
+  })
   const [circleRadius, setCircleRadius] = useState(95)
 
   const outerDivRef = useRef(null)
@@ -43,27 +46,29 @@ const Circle = ({ courses }) => {
         variants={circleVariants}
         animate='animate'
       >
-        {courses?.map((course, index) => {
-          const angle = 60 * index
-          const x =
-            circleCenter.x + circleRadius * Math.cos((angle * Math.PI) / 180)
-          const y =
-            circleCenter.y + circleRadius * Math.sin((angle * Math.PI) / 180)
+        {circleCenter.x != undefined &&
+          circleCenter.y != undefined &&
+          courses?.map((course, index) => {
+            const angle = 60 * index
+            const x =
+              circleCenter.x + circleRadius * Math.cos((angle * Math.PI) / 180)
+            const y =
+              circleCenter.y + circleRadius * Math.sin((angle * Math.PI) / 180)
 
-          return (
-            <Link key={course.id} href={`/courses/${course.slug}`}>
-              <MotionImage
-                priority
-                src={course.image.url}
-                width={150}
-                height={150}
-                alt={course.name}
-                style={{
-                  top: `${y}px`,
-                  left: `${x}px`,
-                  transform: `translate(-50%, -50%) rotate(${angle}deg)`,
-                }}
-                className={`shadow-3xl absolute left-1/2 top-1/2
+            return (
+              <Link key={course.id} href={`/courses/${course.slug}`}>
+                <MotionImage
+                  priority
+                  src={course.image.url}
+                  width={150}
+                  height={150}
+                  alt={course.name}
+                  style={{
+                    top: `${y}px`,
+                    left: `${x}px`,
+                    transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+                  }}
+                  className={`shadow-3xl absolute left-1/2 top-1/2
                  flex 
                  h-[4.25rem] w-[4.25rem] -translate-x-1/2 
                  -translate-y-1/2 items-center
@@ -75,10 +80,10 @@ const Circle = ({ courses }) => {
                    dark:hover:shadow-md dark:hover:shadow-white md:h-24 md:w-24 ${
                      course.name.includes('Next.JS') ? 'dark:bg-white' : ''
                    }`}
-              />
-            </Link>
-          )
-        })}
+                />
+              </Link>
+            )
+          })}
       </motion.div>
     </div>
   )

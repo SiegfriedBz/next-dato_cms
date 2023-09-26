@@ -33,7 +33,7 @@ export default function Home({ courses }) {
               href='/courses'
             >
               <span
-                class='inline-flex h-full w-full 
+                className='inline-flex h-full w-full 
                 items-center justify-center rounded-2xl
                    bg-white dark:bg-slate-950'
               >
