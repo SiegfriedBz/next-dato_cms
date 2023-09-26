@@ -10,7 +10,7 @@ const textVariants = {
     y: 0,
     transition: {
       duration: 1.75,
-      staggerChildren: 0.25,
+      staggerChildren: 0.15,
     },
   },
 }
@@ -22,7 +22,7 @@ const wordVariants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.85,
+      duration: 0.35,
     },
   },
 }

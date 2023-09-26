@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { gql } from 'graphql-request'
 import { performRequest } from '@/lib/dato'
-import { motion } from 'framer-motion'
 import Circle from '@/components/Circle'
 import { AnimatedText } from '@/components/AnimatedText'
 
@@ -15,12 +14,12 @@ export default function Home({ courses }) {
         <div className='col-span-4 lg:col-span-2'>
           <Circle courses={courses} />
         </div>
-        <div className='col-span-4 flex flex-col lg:col-span-2'>
+        <div className='col-span-4 mt-2 flex flex-col lg:col-span-2 lg:mt-0'>
           <AnimatedText
-            text='Get instant access to your free courses.'
+            text='Get instant access to all courses.'
             className='mb-5 text-center lg:text-left'
           />
-          <div className='my-3 ms-auto flex w-full items-center justify-center gap-2 lg:my-5 lg:justify-start lg:gap-8'>
+          <div className='my-4 ms-auto flex w-full items-center justify-center gap-2 lg:my-5 lg:justify-start lg:gap-8'>
             <Link
               className='flex
               h-12 w-52

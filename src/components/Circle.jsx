@@ -15,7 +15,7 @@ const circleVariants = {
 
 const Circle = ({ courses }) => {
   const [circleCenter, setCircleCenter] = useState({ x: 0, y: 0 })
-  const [circleRadius, setCircleRadius] = useState(85)
+  const [circleRadius, setCircleRadius] = useState(95)
 
   const outerDivRef = useRef(null)
 
@@ -63,7 +63,7 @@ const Circle = ({ courses }) => {
                 }}
                 className={`shadow-3xl absolute left-1/2 top-1/2
                  flex 
-                 h-[5rem] w-[5rem] -translate-x-1/2 
+                 h-[4.25rem] w-[4.25rem] -translate-x-1/2 
                  -translate-y-1/2 items-center
                   justify-center overflow-hidden 
                    rounded-full 
