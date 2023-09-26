@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -19,7 +19,7 @@ const Circle = ({ courses }) => {
 
   const outerDivRef = useRef(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const innerWidth = window.innerWidth
     if (innerWidth > 640) {
       setCircleRadius(155)
