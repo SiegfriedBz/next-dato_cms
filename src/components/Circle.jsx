@@ -12,7 +12,7 @@ const Circle = ({ courses }) => {
   useLayoutEffect(() => {
     const width = window.innerWidth
     if (width > 640) {
-      setCircleRadius(125)
+      setCircleRadius(155)
     }
   }, [])
 
@@ -27,10 +27,10 @@ const Circle = ({ courses }) => {
   }, [])
 
   return (
-    <div className='w-full'>
+    <div className='flex w-full items-center justify-center py-24'>
       <motion.div
         ref={outerDivRef}
-        className='relative left-[20px] mt-5 h-72 w-72 rounded-full md:mt-0'
+        className='relative my-5 h-24 w-24 rounded-full md:mt-0 md:h-64 md:w-64'
         animate={{ rotate: 360 }}
         transition={{ duration: 12, repeat: Infinity }}
       >
@@ -53,13 +53,16 @@ const Circle = ({ courses }) => {
                   left: `${x}px`,
                   transform: `translate(-50%, -50%) rotate(${angle}deg)`,
                 }}
-                className={`dark:hover:shadow-white' shadow-3xl
-                 dark:shadow-smdark:shadow-slate-100 absolute left-1/2 top-1/2 flex h-[4.5rem]
-                  w-[4.5rem] -translate-x-1/2 
-                   -translate-y-1/2 items-center justify-center 
-                   rounded-full object-contain p-1 shadow-xl 
-                   hover:shadow-2xl dark:hover:shadow-md 
-                   md:h-24 md:w-24 ${
+                className={`shadow-3xl absolute left-1/2
+                 top-1/2 
+                 flex h-[5rem] w-[5rem] 
+                 -translate-x-1/2 -translate-y-1/2
+                  items-center justify-center 
+                   rounded-full 
+                   object-contain p-1 
+                   shadow-xl hover:shadow-2xl dark:shadow-md
+                   dark:shadow-slate-100 
+                   dark:hover:shadow-md dark:hover:shadow-white md:h-24 md:w-24 ${
                      course.name.includes('Next.JS') ? 'dark:bg-white' : ''
                    }`}
               />

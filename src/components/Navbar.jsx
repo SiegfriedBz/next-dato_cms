@@ -31,15 +31,17 @@ const Navbar = () => {
               ''
             )}
           </button>
-          <Link className='hover:text-slate-600' href='/'>
-            Home
-          </Link>
-          <Link className='hover:text-slate-600' href='/courses'>
-            Courses
-          </Link>
-          <Link className='hover:text-slate-600' href='/authors'>
-            Authors
-          </Link>
+          <div className='hidden md:flex'>
+            <Link className='hover:text-slate-600' href='/'>
+              Home
+            </Link>
+            <Link className='hover:text-slate-600' href='/courses'>
+              Courses
+            </Link>
+            <Link className='hover:text-slate-600' href='/authors'>
+              Authors
+            </Link>
+          </div>
         </div>
       </nav>
     </div>
