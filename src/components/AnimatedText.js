@@ -33,7 +33,7 @@ export const AnimatedText = ({ text, className = '' }) => {
       variants={textVariants}
       initial='hidden'
       animate='visible'
-      className={`overflow-hidden py-0 text-center sm:py-2 ${className}`}
+      className={`overflow-hidden py-0 text-center sm:py-2 ${className} bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-3xl font-bold text-transparent lg:text-7xl`}
     >
       {text.split(' ').map((word, idx) => {
         return (

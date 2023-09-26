@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { gql } from 'graphql-request'
 import { performRequest } from '@/lib/dato'
+import { motion } from 'framer-motion'
 import Circle from '@/components/Circle'
 import { AnimatedText } from '@/components/AnimatedText'
 
@@ -17,25 +18,41 @@ export default function Home({ courses }) {
         <div className='col-span-4 flex flex-col lg:col-span-2'>
           <AnimatedText
             text='Get instant access to your free courses.'
-            className='mb-5 text-center text-3xl lg:text-left lg:text-7xl'
+            className='mb-5 text-center lg:text-left'
           />
-          <div className='my-3 ms-auto flex w-full items-center justify-center gap-2 lg:my-5 lg:justify-start  lg:gap-8'>
+          <div className='my-3 ms-auto flex w-full items-center justify-center gap-2 lg:my-5 lg:justify-start lg:gap-8'>
             <Link
-              className='dark:text-dark rounded-xl 
-              border border-slate-950
-              bg-slate-950 px-4 py-2 text-sm font-bold 
-                text-white transition-all duration-300
-                hover:bg-white hover:text-slate-950
-                  dark:border-white
-                  dark:bg-white dark:text-slate-950 dark:hover:bg-slate-950
-                  dark:hover:text-white lg:px-8 
-                  lg:py-4 lg:text-base'
+              className='flex
+              h-12 w-52
+              items-center justify-center
+              rounded-2xl bg-gradient-to-r from-pink-500
+              via-red-500 
+              to-yellow-500 
+              p-[0.1rem] transition-["scale"] duration-300
+                hover:scale-105 lg:h-20 lg:w-72
+                '
               href='/courses'
             >
-              Check your free courses!
+              <span
+                class='inline-flex h-full w-full 
+                items-center justify-center rounded-2xl
+                   bg-white dark:bg-slate-950'
+              >
+                <span
+                  className='bg-gradient-to-r
+                 from-pink-500 via-red-500 to-yellow-500 
+                 bg-clip-text text-sm font-extrabold
+                 text-transparent lg:text-xl'
+                >
+                  Check your free courses!
+                </span>
+              </span>
             </Link>
             <a
-              className='text-sm font-bold underline underline-offset-2 hover:text-slate-950/75 dark:hover:text-white/75 lg:text-base'
+              className='bg-gradient-to-r
+               from-pink-500 via-red-500 to-yellow-500
+                bg-clip-text text-sm font-bold text-transparent
+                transition-["scale"] duration-300 hover:scale-110 lg:text-xl'
               href='mailto:yoda@yoda.com'
             >
               Contact
