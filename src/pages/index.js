@@ -10,7 +10,7 @@ export default function Home({ courses }) {
     <>
       <section
         id='hero'
-        className='flex flex-col items-center justify-center gap-y-16 md:flex-row md:gap-x-16'
+        className='flex w-full flex-col items-center justify-center md:flex-row md:gap-x-16'
       >
         <Circle courses={courses} />
         <AnimatedText

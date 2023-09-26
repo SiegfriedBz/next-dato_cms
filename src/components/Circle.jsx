@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 const Circle = ({ courses }) => {
   const [circleCenter, setCircleCenter] = useState({ x: 0, y: 0 })
-  const [circleRadius, setCircleRadius] = useState(105)
+  const [circleRadius, setCircleRadius] = useState(95)
 
   const outerDivRef = useRef(null)
 
@@ -27,40 +27,47 @@ const Circle = ({ courses }) => {
   }, [])
 
   return (
-    <motion.div
-      ref={outerDivRef}
-      className='relative mt-5 h-72 w-72 rounded-full md:mt-0'
-      animate={{ rotate: 360 }}
-      transition={{ duration: 12, repeat: Infinity }}
-    >
-      {courses?.map((course, index) => {
-        const angle = 60 * index
-        const x =
-          circleCenter.x + circleRadius * Math.cos((angle * Math.PI) / 180)
-        const y =
-          circleCenter.y + circleRadius * Math.sin((angle * Math.PI) / 180)
+    <div className='w-full'>
+      <motion.div
+        ref={outerDivRef}
+        className='relative left-[20px] mt-5 h-72 w-72 rounded-full md:mt-0'
+        animate={{ rotate: 360 }}
+        transition={{ duration: 12, repeat: Infinity }}
+      >
+        {courses?.map((course, index) => {
+          const angle = 60 * index
+          const x =
+            circleCenter.x + circleRadius * Math.cos((angle * Math.PI) / 180)
+          const y =
+            circleCenter.y + circleRadius * Math.sin((angle * Math.PI) / 180)
 
-        return (
-          <Link key={course.id} href={`/courses/${course.slug}`} className=''>
-            <Image
-              src={course.image.url}
-              width={150}
-              height={150}
-              alt={course.name}
-              style={{
-                top: `${y}px`,
-                left: `${x}px`,
-                transform: `translate(-50%, -50%) rotate(${angle}deg)`,
-              }}
-              className={`dark:hover:shadow-white' shadow-3xl absolute left-1/2 top-1/2 flex h-[4.5rem] w-[4.5rem] -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full rounded-full object-contain p-1 p-2 shadow-xl hover:shadow-2xl dark:shadow-sm
-            dark:shadow-slate-100 dark:hover:shadow-md md:h-24 md:w-24 ${
-              course.name.includes('Next.JS') ? 'dark:bg-white' : ''
-            }`}
-            />
-          </Link>
-        )
-      })}
-    </motion.div>
+          return (
+            <Link key={course.id} href={`/courses/${course.slug}`} className=''>
+              <Image
+                src={course.image.url}
+                width={150}
+                height={150}
+                alt={course.name}
+                style={{
+                  top: `${y}px`,
+                  left: `${x}px`,
+                  transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+                }}
+                className={`dark:hover:shadow-white' shadow-3xl
+                 dark:shadow-smdark:shadow-slate-100 absolute left-1/2 top-1/2 flex h-[4.5rem]
+                  w-[4.5rem] -translate-x-1/2 
+                   -translate-y-1/2 items-center justify-center 
+                   rounded-full object-contain p-1 shadow-xl 
+                   hover:shadow-2xl dark:hover:shadow-md 
+                   md:h-24 md:w-24 ${
+                     course.name.includes('Next.JS') ? 'dark:bg-white' : ''
+                   }`}
+              />
+            </Link>
+          )
+        })}
+      </motion.div>
+    </div>
   )
 }
 
