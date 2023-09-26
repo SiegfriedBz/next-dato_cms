@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useThemeMode } from '@/hooks/useThemeMode'
 import { MoonIcon, SunIcon } from './Icons'
+import Logo from './Logo'
 
 const Navbar = () => {
   const [isClient, setIsClient] = useState(false)
@@ -31,7 +32,8 @@ const Navbar = () => {
               ''
             )}
           </button>
-          <div className='hidden md:flex'>
+
+          {/* <div className='hidden md:flex'>
             <Link className='hover:text-slate-600' href='/'>
               Home
             </Link>
@@ -41,7 +43,10 @@ const Navbar = () => {
             <Link className='hover:text-slate-600' href='/authors'>
               Authors
             </Link>
-          </div>
+          </div> */}
+        </div>
+        <div className='absolute left-1/2 -translate-x-1/2'>
+          <Logo />
         </div>
       </nav>
     </div>
