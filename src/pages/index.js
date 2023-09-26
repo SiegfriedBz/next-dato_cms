@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { gql } from 'graphql-request'
 import { performRequest } from '@/lib/dato'
 import Circle from '@/components/Circle'
