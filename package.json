@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@datocms/cma-client-node": "^2.0.0",
     "autoprefixer": "10.4.15",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
+    "framer-motion": "^10.16.4",
+    "graphql-request": "^6.1.0",
     "next": "13.4.19",
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4"
   }
 }
