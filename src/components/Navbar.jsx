@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useThemeMode } from '@/hooks/useThemeMode'
 import { MoonIcon, SunIcon } from './Icons'
@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isClient, setIsClient] = useState(false)
   const [themeColor, setThemeColor] = useThemeMode()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setIsClient(true)
   }, [])
 

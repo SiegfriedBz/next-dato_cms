@@ -1,23 +1,22 @@
-import { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const Circle = ({ courses }) => {
+  const [isClient, setIsClient] = useState(false)
   const [circleCenter, setCircleCenter] = useState({ x: 0, y: 0 })
   const [circleRadius, setCircleRadius] = useState(95)
 
   const outerDivRef = useRef(null)
 
-  useLayoutEffect(() => {
-    const width = window.innerWidth
-    if (width > 640) {
+  useEffect(() => {
+    setIsClient(true)
+    const innerWidth = window.innerWidth
+    if (innerWidth > 640) {
       setCircleRadius(155)
     }
-  }, [])
-
-  useEffect(() => {
-    if (outerDivRef.current !== null) {
+    if (outerDivRef.current != null) {
       const { width, height } = outerDivRef.current.getBoundingClientRect()
       setCircleCenter({
         x: width / 2,
@@ -34,26 +33,32 @@ const Circle = ({ courses }) => {
         animate={{ rotate: 360 }}
         transition={{ duration: 12, repeat: Infinity }}
       >
-        {courses?.map((course, index) => {
-          const angle = 60 * index
-          const x =
-            circleCenter.x + circleRadius * Math.cos((angle * Math.PI) / 180)
-          const y =
-            circleCenter.y + circleRadius * Math.sin((angle * Math.PI) / 180)
+        {isClient &&
+          courses?.map((course, index) => {
+            const angle = 60 * index
+            const x =
+              circleCenter.x + circleRadius * Math.cos((angle * Math.PI) / 180)
+            const y =
+              circleCenter.y + circleRadius * Math.sin((angle * Math.PI) / 180)
 
-          return (
-            <Link key={course.id} href={`/courses/${course.slug}`} className=''>
-              <Image
-                src={course.image.url}
-                width={150}
-                height={150}
-                alt={course.name}
-                style={{
-                  top: `${y}px`,
-                  left: `${x}px`,
-                  transform: `translate(-50%, -50%) rotate(${angle}deg)`,
-                }}
-                className={`shadow-3xl absolute left-1/2
+            return (
+              <Link
+                key={course.id}
+                href={`/courses/${course.slug}`}
+                className=''
+              >
+                <Image
+                  priority
+                  src={course.image.url}
+                  width={150}
+                  height={150}
+                  alt={course.name}
+                  style={{
+                    top: `${y}px`,
+                    left: `${x}px`,
+                    transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+                  }}
+                  className={`shadow-3xl absolute left-1/2
                  top-1/2 
                  flex h-[5rem] w-[5rem] 
                  -translate-x-1/2 -translate-y-1/2
@@ -65,10 +70,10 @@ const Circle = ({ courses }) => {
                    dark:hover:shadow-md dark:hover:shadow-white md:h-24 md:w-24 ${
                      course.name.includes('Next.JS') ? 'dark:bg-white' : ''
                    }`}
-              />
-            </Link>
-          )
-        })}
+                />
+              </Link>
+            )
+          })}
       </motion.div>
     </div>
   )
