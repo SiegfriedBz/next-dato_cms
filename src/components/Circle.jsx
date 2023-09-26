@@ -5,13 +5,15 @@ import { motion } from 'framer-motion'
 
 const circleVariants = {
   animate: {
-    rotate: 360,
+    rotate: 3600,
     transition: {
-      duration: 12,
+      duration: 120,
       repeat: Infinity,
     },
   },
 }
+
+const MotionImage = motion(Image)
 
 const Circle = ({ courses }) => {
   const [circleCenter, setCircleCenter] = useState({ x: 0, y: 0 })
@@ -50,7 +52,7 @@ const Circle = ({ courses }) => {
 
           return (
             <Link key={course.id} href={`/courses/${course.slug}`}>
-              <Image
+              <MotionImage
                 priority
                 src={course.image.url}
                 width={150}

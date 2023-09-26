@@ -21,10 +21,10 @@ const Navbar = () => {
       <nav className='flex items-center justify-between'>
         <Link href='/' className='hidden sm:flex'>
           <span className='bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-base font-bold text-transparent sm:text-2xl md:text-3xl'>
-            WebWizards
+            WebWizzards
           </span>
         </Link>
-        <div className='flex gap-8 self-end'>
+        <div className='my-auto flex gap-8 self-end'>
           <button onClick={toggleThemeColor}>
             {isClient ? (
               themeColor === 'light' ? (

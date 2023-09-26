@@ -19,7 +19,7 @@ export default function Home({ courses }) {
             text='Get instant access to all courses.'
             className='mb-5 text-center lg:text-left'
           />
-          <div className='my-4 ms-auto flex w-full items-center justify-center gap-2 lg:my-5 lg:justify-start lg:gap-8'>
+          <div className='my-4 ms-auto flex w-full items-center justify-center gap-4 lg:my-5 lg:justify-start lg:gap-8'>
             <Link
               className='flex
               h-12 w-52
