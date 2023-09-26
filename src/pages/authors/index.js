@@ -47,6 +47,7 @@ const Authors = ({ authors }) => {
               height={75}
               src={author.avatar.url}
               alt={author.name}
+              className='rounded-full'
             />
             Bio
             <br />

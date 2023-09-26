@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className='sticky top-0 z-10 border-b border-slate-950 bg-white px-8 py-8 font-medium opacity-100 dark:border-white dark:bg-slate-950 dark:text-white sm:px-12 md:px-24 lg:px-12 xl:px-32'>
       <nav className='flex items-center justify-between'>
-        <Link href='/'>LOGO</Link>
+        <Link href='/'>WebWizards</Link>
         <div className='flex gap-8'>
           <button onClick={toggleThemeColor}>
             {isClient ? (

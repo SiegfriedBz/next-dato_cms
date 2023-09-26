@@ -35,7 +35,7 @@ const Logo = ({ setMobileMenuIsOpen }) => {
           // setMobileMenuIsOpen(false)
         }}
       >
-        Dato
+        WZ
       </motion.button>
     </div>
   )

@@ -49,7 +49,7 @@ const Circle = ({ courses }) => {
             circleCenter.y + circleRadius * Math.sin((angle * Math.PI) / 180)
 
           return (
-            <Link key={course.id} href={`/courses/${course.slug}`} className=''>
+            <Link key={course.id} href={`/courses/${course.slug}`}>
               <Image
                 priority
                 src={course.image.url}
@@ -61,11 +61,11 @@ const Circle = ({ courses }) => {
                   left: `${x}px`,
                   transform: `translate(-50%, -50%) rotate(${angle}deg)`,
                 }}
-                className={`shadow-3xl absolute left-1/2
-                 top-1/2 
-                 flex h-[5rem] w-[5rem] 
-                 -translate-x-1/2 -translate-y-1/2
-                  items-center justify-center 
+                className={`shadow-3xl absolute left-1/2 top-1/2
+                 flex 
+                 h-[5rem] w-[5rem] -translate-x-1/2 
+                 -translate-y-1/2 items-center
+                  justify-center overflow-hidden 
                    rounded-full 
                    object-contain p-1 
                    shadow-xl hover:shadow-2xl dark:shadow-md
