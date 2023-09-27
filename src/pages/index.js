@@ -47,14 +47,14 @@ export default function Home({ courses }) {
             >
               <span
                 className='inline-flex h-full w-full 
-                items-center justify-center rounded-2xl
-                   bg-white dark:bg-slate-950'
+                  items-center justify-center rounded-2xl
+                  bg-transparent dark:bg-slate-950'
               >
                 <span
-                  className='bg-gradient-to-r
-                 from-pink-500 via-red-500 to-yellow-500 
-                 bg-clip-text text-sm font-extrabold
-                 text-transparent lg:text-xl'
+                  className='text-sm
+                 font-extrabold text-white dark:bg-gradient-to-r dark:from-pink-500 
+                 dark:via-red-500 dark:to-yellow-500 dark:bg-clip-text
+                 dark:text-transparent lg:text-xl'
                 >
                   Check your free courses!
                 </span>

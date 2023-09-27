@@ -8,7 +8,7 @@ const Footer = () => {
       className='flex w-full bg-gradient-to-r 
         from-pink-500 
         via-red-500 
-        to-yellow-500 pt-[0.025rem]'
+        to-yellow-500 pt-[0.05rem] dark:pt-[0.025rem]'
     >
       <div
         className='flex h-full w-full flex-col items-center

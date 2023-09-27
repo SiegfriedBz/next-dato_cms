@@ -28,7 +28,7 @@ const Navbar = () => {
         className='flex h-24 w-full 
         bg-gradient-to-r 
         from-pink-500 
-        via-red-500 to-yellow-500 pb-[0.025rem]'
+        via-red-500 to-yellow-500 pb-[0.05rem] dark:pb-[0.025rem]'
       >
         <div
           className='flex h-full w-full items-center justify-center
@@ -51,14 +51,14 @@ const Navbar = () => {
                   themeColor === 'light' ? (
                     <FontAwesomeIcon
                       icon={faMoon}
-                      className='h-4 animate-pulse
-                      font-bold text-pink-500 lg:h-6'
+                      className='h-5 animate-pulse
+                      font-extrabold text-pink-500 lg:h-7'
                     />
                   ) : (
                     <FontAwesomeIcon
                       icon={faSun}
-                      className='h-4 animate-spin-slow
-                      font-bold text-yellow-500 lg:h-6'
+                      className='h-5 animate-spin-slow
+                      font-extrabold text-yellow-500 lg:h-7'
                     />
                   )
                 ) : (
