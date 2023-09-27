@@ -68,11 +68,11 @@ const coursesShortQuery = gql`
     allCourses(first: 6) {
       id
       name
+      slug
       image {
         id
         url
       }
-      slug
     }
   }
 `

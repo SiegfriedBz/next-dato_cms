@@ -7,30 +7,80 @@ export default function Courses({ courses }) {
   return (
     <section
       id='courses'
-      className='grid grid-cols-1 items-center justify-center gap-3 md:gap-6 lg:grid-cols-2 2xl:grid-cols-3'
+      className='grid grid-cols-1 
+        items-center justify-center 
+         gap-12
+          lg:grid-cols-2 2xl:grid-cols-3'
     >
       {courses?.map((course) => {
         return (
           <div
             key={course.id}
-            className='group col-span-1 flex h-80 flex-col items-center justify-center gap-3 rounded-2xl border-[1px] border-slate-950 shadow-xl hover:shadow-2xl dark:border-white dark:bg-slate-950 dark:text-white dark:shadow-sm dark:shadow-slate-100 dark:hover:border-white dark:hover:shadow-md dark:hover:shadow-white md:h-64 md:flex-row'
+            className=' group col-span-1
+              h-96 w-full items-center justify-center
+              rounded-2xl border-[1px] border-slate-950 
+              shadow-xl hover:shadow-2xl
+              dark:border-white dark:bg-slate-950
+               dark:text-white dark:shadow-sm dark:shadow-slate-100
+                dark:hover:border-white
+                 dark:hover:shadow-md dark:hover:shadow-white 
+                 sm:h-72'
           >
-            <div className='flex h-48 w-48 items-center justify-center rounded-full p-2 shadow-xl group-hover:shadow-2xl dark:shadow-sm dark:shadow-slate-100 dark:group-hover:shadow-md dark:group-hover:shadow-white'>
-              <Image
-                src={course.image.url}
-                width={150}
-                height={150}
-                alt={course.name}
-                className={`shadow-3xl rounded-full object-contain p-1 ${
-                  course.name.includes('Next.JS') ? 'dark:bg-white' : ''
-                }`}
-              />
+            <div
+              className='grid h-full w-full
+              grid-cols-4 items-center 
+              justify-center'
+            >
+              <div
+                className='col-span-4 mx-auto mt-3 
+                h-52 w-52
+                rounded-full p-2
+                shadow-xl group-hover:shadow-2xl dark:shadow-sm 
+                dark:shadow-slate-100 
+                dark:group-hover:shadow-md dark:group-hover:shadow-white 
+                sm:col-span-2 sm:mt-0 
+                 '
+              >
+                <Image
+                  src={course.image.url}
+                  width={150}
+                  height={150}
+                  alt={course.name}
+                  className={`shadow-3xl h-full w-full rounded-full object-contain p-1 ${
+                    course.name.includes('Next.JS') ? 'dark:bg-white' : ''
+                  }`}
+                />
+              </div>
+              <Link
+                href={`/courses/${course.slug}`}
+                className='col-span-4 mx-5 my-3 flex flex-col items-center justify-center sm:col-span-2 sm:mx-auto'
+              >
+                <span
+                  className='mx-auto inline-block
+                  w-full text-center text-xl font-bold text-slate-950/75
+                 group-hover:text-slate-950 dark:text-white/80
+                  dark:group-hover:text-white/90
+                  sm:text-2xl lg:text-xl xl:text-2xl 2xl:text-xl
+                  '
+                >
+                  {course.smallTitle}
+                </span>
+                <span
+                  className='mx-auto mt-3 inline-block
+                  w-full 
+                  bg-gradient-to-r from-pink-500 via-red-500 
+                  to-yellow-500
+                  bg-clip-text text-center text-3xl
+                  font-bold text-transparent
+                  transition-["scale"] duration-300 group-hover:scale-110
+                  sm:mt-5 
+                  sm:text-4xl lg:text-3xl xl:text-4xl 2xl:text-3xl
+                  '
+                >
+                  {course.name}
+                </span>
+              </Link>
             </div>
-            <Link href={`/courses/${course.slug}`} className='w-1/2'>
-              <span className='inline-block w-full items-center justify-center text-2xl font-bold text-slate-950/75 group-hover:text-slate-950 dark:text-white/90 dark:group-hover:text-white'>
-                {course.name}
-              </span>
-            </Link>
           </div>
         )
       })}
@@ -43,11 +93,12 @@ const allCoursesShortQuery = gql`
     allCourses {
       id
       name
+      smallTitle
+      slug
       image {
         id
         url
       }
-      slug
       courseAuthor {
         id
         name
@@ -69,6 +120,8 @@ export async function getStaticProps() {
   const { data } = await performRequest({
     query: allCoursesShortQuery,
   })
+
+  console.log('data', data)
 
   return {
     props: {

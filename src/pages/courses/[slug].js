@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { performRequest } from '@/lib/dato'
 import { gql } from 'graphql-request'
 import {
-  CourseDetail,
+  OmniSection,
   HeaderSection,
   LearnSection,
   PriceSection,
@@ -25,9 +25,9 @@ const Course = ({ course }) => {
 
   return (
     <section id={`course-${course?.name}`} className=''>
-      {course?.courseDetail?.map((detail) => {
+      {course?.OmniSection?.map((detail) => {
         return (
-          <CourseDetail
+          <OmniSection
             As={mapTypeNameToSection.get(detail.__typename)}
             detail={detail}
             key={detail.id}
@@ -62,6 +62,7 @@ const courseQuery = gql`
     course(filter: { slug: { eq: $arg1 } }) {
       id
       name
+      smallTitle
       image {
         id
         url
@@ -71,10 +72,8 @@ const courseQuery = gql`
         ... on CourseHeaderSectionRecord {
           __typename
           id
-          bigTitle
           buttonText
           description
-          smallTitle
         }
         ... on CourseLearnSectionRecord {
           __typename
