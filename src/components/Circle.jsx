@@ -56,30 +56,50 @@ const Circle = ({ courses }) => {
             return (
               <Link key={course.id} href={`/courses/${course.slug}`}>
                 <motion.span
-                  className={`shadow-3xl absolute left-1/2 top-1/2
-                    flex h-[4.25rem] w-[4.25rem] 
+                  className='absolute left-1/2 top-1/2
+                    h-[4.25rem] w-[4.25rem] 
                     -translate-x-1/2 
                     -translate-y-1/2 
-                    items-center
-                    justify-center overflow-hidden 
+                    overflow-hidden 
                     rounded-full 
-                    shadow-xl hover:shadow-2xl dark:shadow-md
-                    dark:shadow-slate-100 
-                    dark:hover:shadow-md dark:hover:shadow-white md:h-24 md:w-24 lg:h-28 lg:w-28 xl:h-32 xl:w-32   
-                    ${course.name.includes('Next.JS') ? 'dark:bg-white' : ''}`}
+                    bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
+                    p-[0.025rem] shadow-2xl 
+                     dark:shadow-sm
+                    dark:shadow-white md:h-24 md:w-24 lg:h-28
+                    lg:w-28 xl:h-32
+                    xl:w-32 
+                  '
                   style={{
                     top: `${y}px`,
                     left: `${x}px`,
                     transform: `translate(-50%, -50%) rotate(${angle}deg)`,
                   }}
                 >
-                  <Image
-                    data={course.image.responsiveImage}
-                    width={150}
-                    height={150}
-                    alt={course.name}
-                    className='h-full w-full rounded-full object-contain p-1'
-                  />
+                  <span
+                    className={`
+                      shadow-3xl 
+                      flex h-full 
+                      w-full items-center 
+                      justify-center 
+                      overflow-hidden 
+                      rounded-full bg-white 
+                      p-1
+                      dark:bg-slate-950
+                      ${
+                        course.name.includes('Next.JS')
+                          ? 'p-0.5 dark:bg-white'
+                          : ''
+                      }
+                    `}
+                  >
+                    <Image
+                      data={course.image.responsiveImage}
+                      width={150}
+                      height={150}
+                      alt={course.name}
+                      className='h-full w-full rounded-full object-contain'
+                    />
+                  </span>
                 </motion.span>
               </Link>
             )
