@@ -8,7 +8,7 @@ export const RootLayout = (props) => {
   const router = useRouter()
 
   const meta = {
-    canonicalUrl: `https://webwizzards.vercel.app/${router.asPath}`,
+    canonicalUrl: `https://webwizzards.vercel.app${router.asPath}`,
     ...customMeta,
   }
 
