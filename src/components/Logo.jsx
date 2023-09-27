@@ -20,20 +20,36 @@ const Logo = ({ setMobileMenuIsOpen }) => {
       <motion.button
         variants={logoVariants}
         whileHover='hover'
-        className='flex h-16 w-16 
+        className='flex h-[4rem] w-[4rem]
           items-center justify-center rounded-full 
           bg-gradient-to-r
           from-pink-500 
           via-red-500 
-          to-yellow-500 p-[0.025rem] outline-none
+          to-yellow-500 p-[0.15rem]
           '
         onClick={() => {
           router.push('/')
           // setMobileMenuIsOpen(false)
         }}
       >
-        <span className='bg:transparent inline-flex h-full w-full items-center justify-center rounded-full dark:bg-slate-950'>
-          <span className='text-2xl font-extrabold text-white dark:bg-gradient-to-r dark:from-pink-500 dark:via-red-500 dark:to-yellow-500 dark:bg-clip-text dark:text-transparent'>
+        <span
+          className='bg:transparent darx:p-1
+            inline-flex
+            h-full w-full 
+            items-center justify-center
+            rounded-full
+            dark:bg-slate-950'
+        >
+          <span
+            className='inline-flex 
+            h-full w-full 
+            items-center justify-center
+            text-2xl font-extrabold 
+            text-white
+              dark:bg-gradient-to-r
+            dark:from-pink-500 dark:via-red-500 dark:to-yellow-500
+              dark:bg-clip-text dark:text-transparent'
+          >
             WZ
           </span>
         </span>

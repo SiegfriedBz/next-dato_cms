@@ -24,7 +24,15 @@ const Circle = ({ courses }) => {
 
   useLayoutEffect(() => {
     const innerWidth = window.innerWidth
-    if (innerWidth > 640) {
+    if (innerWidth < 576) {
+      setCircleRadius(95)
+    } else if (innerWidth < 640) {
+      setCircleRadius(105)
+    } else if (innerWidth < 768) {
+      setCircleRadius(115)
+    } else if (innerWidth < 1024) {
+      setCircleRadius(135)
+    } else {
       setCircleRadius(155)
     }
     if (outerDivRef.current != null) {
@@ -37,10 +45,16 @@ const Circle = ({ courses }) => {
   }, [])
 
   return (
-    <div className='flex w-full items-center justify-center overflow-hidden py-24'>
+    <div
+      className='flex 
+        w-full items-center justify-center 
+        overflow-hidden py-[5.75rem]'
+    >
       <motion.div
         ref={outerDivRef}
-        className='relative my-5 h-20 w-20 rounded-full md:mt-0 md:h-64 md:w-64'
+        className='relative my-5 
+          h-20 w-20 rounded-full 
+          md:mt-0 md:h-64 md:w-64'
         variants={circleVariants}
         animate='animate'
       >

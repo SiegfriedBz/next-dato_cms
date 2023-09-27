@@ -19,13 +19,13 @@ const Navbar = () => {
 
   return (
     <div
-      className='sticky top-0 z-10
+      className='sticky top-0 z-10 h-32 w-full
        font-medium opacity-100
         dark:bg-slate-950 dark:text-white 
         '
     >
       <div
-        className='flex h-24 w-full 
+        className='flex h-full w-full 
         bg-gradient-to-r 
         from-pink-500 
         via-red-500 to-yellow-500 pb-[0.05rem] dark:pb-[0.025rem]'

@@ -22,27 +22,34 @@ export default function Home({ courses }) {
       </Head>
       <section
         id='hero'
-        className='grid w-full grid-cols-4 flex-col items-center justify-center lg:my-8 lg:flex-row lg:gap-x-16'
+        className='grid w-full grid-cols-4 
+          flex-col items-center justify-center 
+          lg:my-8 lg:flex-row lg:gap-x-16'
       >
         <div className='col-span-4 lg:col-span-2'>
           <Circle courses={courses} />
         </div>
-        <div className='col-span-4 mt-2 flex flex-col lg:col-span-2 lg:mt-0'>
+        <div
+          className='col-span-4 mt-2 
+          flex flex-col 
+          lg:col-span-2 lg:mt-0'
+        >
           <AnimatedText
             text='Get instant access to all courses.'
             className='mb-5 text-center lg:text-left'
           />
-          <div className='my-4 ms-auto flex w-full items-center justify-center gap-4 lg:my-5 lg:justify-start lg:gap-8'>
+          <div className='my-1 ms-auto flex w-full items-center justify-center gap-4 lg:my-5 lg:justify-start lg:gap-8'>
             <Link
               className='flex
-              h-12 w-52
-              items-center justify-center
-              rounded-2xl bg-gradient-to-r from-pink-500
+                h-12 w-52
+                items-center justify-center
+                rounded-2xl bg-gradient-to-r from-pink-500
               via-red-500 
               to-yellow-500 
-              p-[0.1rem] transition-["scale"] duration-300
-                hover:scale-105 lg:h-20 lg:w-72
-                '
+                p-[0.1rem] 
+                transition-["scale"] duration-300
+                hover:scale-105
+                lg:h-20 lg:w-72'
               href='/courses'
             >
               <span
@@ -52,9 +59,12 @@ export default function Home({ courses }) {
               >
                 <span
                   className='text-sm
-                 font-extrabold text-white dark:bg-gradient-to-r dark:from-pink-500 
-                 dark:via-red-500 dark:to-yellow-500 dark:bg-clip-text
-                 dark:text-transparent lg:text-xl'
+                    font-extrabold
+                  text-white 
+                    dark:bg-gradient-to-r dark:from-pink-500 
+                  dark:via-red-500 dark:to-yellow-500 
+                    dark:bg-clip-text
+                    dark:text-transparent lg:text-xl'
                 >
                   Check your free courses!
                 </span>
