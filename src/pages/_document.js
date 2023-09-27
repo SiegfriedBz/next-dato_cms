@@ -7,11 +7,8 @@ export default function Document() {
         <meta name='viewport' content='width=device-width,initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
         <meta name='robots' content='follow, index' />
-        <meta
-          name='keywords'
-          content='WebWizzards, Web Development Academy'
-        ></meta>
-        <meta property='og:site_name' content='WebWizzards Academy' />
+        <meta name='keywords' content='WebWizzards'></meta>
+        <meta property='og:site_name' content='WebWizzards' />
       </Head>
       <body>
         <Main />

@@ -3,10 +3,23 @@ import { gql } from 'graphql-request'
 import { performRequest } from '@/lib/dato'
 import Circle from '@/components/Circle'
 import { AnimatedText } from '@/components/AnimatedText'
+import Head from 'next/head'
+
+const meta = {
+  title: 'WebWizzards | Home',
+  description:
+    'WebWizzards is a platform where you can find the best courses for web development.',
+}
 
 export default function Home({ courses }) {
   return (
     <>
+      <Head>
+        <title>{meta.title}</title>
+        <meta content={meta.description} name='description' />
+        <meta property='og:description' content={meta.description} />
+        <meta property='og:title' content={meta.title} />
+      </Head>
       <section
         id='hero'
         className='grid w-full grid-cols-4 flex-col items-center justify-center lg:my-8 lg:flex-row lg:gap-x-16'
