@@ -1,7 +1,7 @@
 import React from 'react'
 
 const PriceSection = ({ detail }) => {
-  console.log('PriceSection detail', detail)
+  // console.log('PriceSection detail', detail)
   // __typename: 'CoursePriceSectionRecord',
   // id: '202115287',
   // title: 'Get The Course',

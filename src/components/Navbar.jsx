@@ -17,9 +17,6 @@ const Navbar = () => {
     setThemeColor(themeColor === 'light' ? 'dark' : 'light')
   }
 
-  console.log('isClient', isClient)
-  console.log('themeColor', themeColor)
-
   return (
     <div
       className='sticky top-0 z-10
@@ -31,7 +28,7 @@ const Navbar = () => {
         className='flex h-24 w-full 
         bg-gradient-to-r 
         from-pink-500 
-        via-red-500 to-yellow-500 pb-[0.1rem]'
+        via-red-500 to-yellow-500 pb-[0.025rem]'
       >
         <div
           className='flex h-full w-full items-center justify-center

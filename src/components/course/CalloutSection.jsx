@@ -1,5 +1,5 @@
 const CalloutSection = ({ detail }) => {
-  console.log('CalloutSection detail', detail)
+  // console.log('CalloutSection detail', detail)
   // __typename: 'CourseCalloutSectionRecord',
   // id: '202036926',
   // smallTitle: '',

@@ -24,7 +24,7 @@ const Logo = ({ setMobileMenuIsOpen }) => {
           items-center justify-center rounded-full 
           bg-gradient-to-r 
           from-pink-500 
-          via-red-500 to-yellow-500 p-[0.1rem] font-bold outline-none
+          via-red-500 to-yellow-500 p-[0.025rem] font-bold outline-none
           '
         onClick={() => {
           router.push('/')

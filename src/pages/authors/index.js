@@ -83,8 +83,6 @@ export async function getStaticProps() {
     query: allAuthorsQuery,
   })
 
-  console.log('data', data)
-
   const authors = data?.allAuthors || []
 
   return {

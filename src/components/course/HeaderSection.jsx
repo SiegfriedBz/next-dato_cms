@@ -1,5 +1,5 @@
 const HeaderSection = ({ detail }) => {
-  console.log('HeaderSection detail', detail)
+  // console.log('HeaderSection detail', detail)
   // __typename: 'CourseHeaderSectionRecord',
   // id: '201931615',
   // bigTitle: 'Tailwind CSS',
