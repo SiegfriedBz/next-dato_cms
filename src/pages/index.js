@@ -9,7 +9,7 @@ export default function Home({ courses }) {
     <>
       <section
         id='hero'
-        className='grid w-full grid-cols-4 flex-col items-center justify-center lg:my-24 lg:flex-row lg:gap-x-16'
+        className='grid w-full grid-cols-4 flex-col items-center justify-center lg:my-8 lg:flex-row lg:gap-x-16'
       >
         <div className='col-span-4 lg:col-span-2'>
           <Circle courses={courses} />

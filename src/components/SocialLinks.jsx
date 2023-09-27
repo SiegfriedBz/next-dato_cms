@@ -29,7 +29,7 @@ const SocialLinks = ({ modal = false }) => {
         <FontAwesomeIcon
           icon={faGithubAlt}
           className={`h-8 w-8 
-          ${modal ? 'text-light dark:text-dark' : 'text-dark dark:text-light'}
+          text-pink-500 hover:text-yellow-500
           `}
         />
       </MotionLink>
