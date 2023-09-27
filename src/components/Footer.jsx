@@ -42,7 +42,9 @@ const Footer = () => {
           <a
             href='mailto:siegfried.bozza@yahoo.com'
             target='_blank'
-            className=' ps-2 
+            className='bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
+            bg-clip-text
+            ps-2 text-transparent
              transition-["scale"] duration-300 hover:scale-105'
           >
             SiegfriedB
