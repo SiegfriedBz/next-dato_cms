@@ -1,21 +1,14 @@
-import { useEffect, useState } from 'react'
 import SocialLinks from './SocialLinks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartPulse } from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
   return (
     <footer
-      className='flex h-24 w-full 
-        bg-gradient-to-r 
+      className='flex h-32 w-full bg-gradient-to-r 
         from-pink-500 
-        via-red-500 to-yellow-500 pt-[0.1rem]'
+        via-red-500 
+        to-yellow-500 pt-[0.1rem] sm:h-24'
     >
       <div
         className='flex h-full w-full flex-col items-center
@@ -32,10 +25,10 @@ const Footer = () => {
           <span>&copy;{new Date().getFullYear()} All Rights Reserved.</span>
         </div>
         <div
-          className='flex items-center justify-center bg-gradient-to-r
-                 from-pink-500 via-red-500 to-yellow-500 
-                 bg-clip-text
-                 text-transparent'
+          className='mt-2 flex items-center justify-center
+                 bg-gradient-to-r from-pink-500 via-red-500 
+                 to-yellow-500
+                 bg-clip-text text-transparent sm:mt-0'
         >
           Build with
           <span className='px-2 '>
@@ -49,8 +42,8 @@ const Footer = () => {
           <a
             href='mailto:siegfried.bozza@yahoo.com'
             target='_blank'
-            className='bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text ps-2 
-            text-transparent transition-["scale"] duration-300 hover:scale-105'
+            className=' ps-2 
+             transition-["scale"] duration-300 hover:scale-105'
           >
             SiegfriedB
           </a>

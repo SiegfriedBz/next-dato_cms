@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useThemeMode } from '@/hooks/useThemeMode'
-import { MoonIcon, SunIcon } from './Icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import Logo from './Logo'
 
 const Navbar = () => {
@@ -23,7 +24,6 @@ const Navbar = () => {
         dark:bg-slate-950 dark:text-white 
         '
     >
-      {/*  */}
       <div
         className='flex h-24 w-full 
         bg-gradient-to-r 
@@ -37,30 +37,45 @@ const Navbar = () => {
                 WebWizzards
               </span>
             </Link>
-            <div className='my-auto flex gap-8 self-end'>
+            <div className='my-auto flex self-end md:gap-4 lg:gap-8'>
               <button onClick={toggleThemeColor}>
                 {isClient ? (
                   themeColor === 'light' ? (
-                    <MoonIcon className='fill-white' />
+                    <FontAwesomeIcon
+                      icon={faMoon}
+                      className='animate-pulse font-bold
+                      text-pink-500 lg:text-lg'
+                    />
                   ) : (
-                    <SunIcon className='fill-white' />
+                    <FontAwesomeIcon
+                      icon={faSun}
+                      className='animate-spin-slow font-bold
+                      text-yellow-500 lg:text-lg'
+                    />
                   )
                 ) : (
                   ''
                 )}
               </button>
 
-              {/* <div className='hidden md:flex'>
-            <Link className='hover:text-slate-600' href='/'>
-              Home
-            </Link>
-            <Link className='hover:text-slate-600' href='/courses'>
-              Courses
-            </Link>
-            <Link className='hover:text-slate-600' href='/authors'>
-              Authors
-            </Link>
-          </div> */}
+              <div className='hidden md:flex md:gap-4 lg:gap-8'>
+                <Link
+                  className='bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
+                    bg-clip-text font-bold
+                    text-transparent transition-["scale"] duration-300 hover:scale-110 lg:text-lg'
+                  href='/courses'
+                >
+                  Courses
+                </Link>
+                <Link
+                  className='bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
+                    bg-clip-text font-bold
+                    text-transparent transition-["scale"] duration-300 hover:scale-110 lg:text-lg'
+                  href='/authors'
+                >
+                  Authors
+                </Link>
+              </div>
             </div>
             <div className='absolute left-1/2 -translate-x-1/2'>
               <Logo />
@@ -68,7 +83,6 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-      {/*  */}
     </div>
   )
 }
