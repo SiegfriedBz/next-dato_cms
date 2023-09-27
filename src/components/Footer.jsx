@@ -11,8 +11,18 @@ const Footer = () => {
   }, [])
 
   return (
-    <footer className='dark:border-light flex w-full items-center justify-center border-t-[1px] border-solid border-black px-8 py-8 font-medium dark:border-white sm:px-12 md:px-24 lg:px-12 xl:px-32'>
-      <div className='flex w-full flex-col items-center justify-between py-3 sm:flex-row sm:py-0'>
+    <footer
+      className='flex h-24 w-full 
+        bg-gradient-to-r 
+        from-pink-500 
+        via-red-500 to-yellow-500 pt-[0.1rem]'
+    >
+      <div
+        className='flex h-full w-full flex-col items-center
+      justify-between bg-white
+       px-8 py-8 dark:bg-slate-950 sm:flex-row 
+       sm:px-12 md:px-24 lg:px-12 xl:px-32'
+      >
         <div>
           <span>&copy;{new Date().getFullYear()} All Rights Reserved.</span>
         </div>
