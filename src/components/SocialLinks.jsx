@@ -6,7 +6,7 @@ import { linkVariants } from '../../utils/framerVariants'
 
 const MotionLink = motion(Link)
 
-const SocialLinks = ({ modal = false }) => {
+const SocialLinks = () => {
   return (
     <>
       <MotionLink
