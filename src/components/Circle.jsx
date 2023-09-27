@@ -83,12 +83,11 @@ const Circle = ({ courses }) => {
                       justify-center 
                       overflow-hidden 
                       rounded-full bg-white 
-                      p-1
                       dark:bg-slate-950
                       ${
                         course.name.includes('Next.JS')
-                          ? 'p-0.5 dark:bg-white'
-                          : ''
+                          ? 'p-1 dark:bg-white dark:p-0'
+                          : 'p-1'
                       }
                     `}
                   >
