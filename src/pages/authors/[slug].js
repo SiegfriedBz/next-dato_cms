@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { performRequest } from '@/lib/dato'
 import { gql } from 'graphql-request'
+import { Image } from 'react-datocms'
 
 const Author = ({ author }) => {
   const router = useRouter()
@@ -56,7 +57,18 @@ const authorQuery = gql`
       }
       avatar {
         id
-        url
+        responsiveImage(
+          imgixParams: { fit: crop, w: 300, h: 300, auto: format }
+        ) {
+          src
+          width
+          height
+          # blur-up placeholder, JPEG format, base64-encoded, or...
+          base64
+          # background color placeholder
+          bgColor
+          sizes
+        }
       }
     }
   }

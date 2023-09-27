@@ -1,6 +1,6 @@
 import { useState, useRef, useLayoutEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import { Image } from 'react-datocms'
 import { motion } from 'framer-motion'
 
 const circleVariants = {
@@ -12,8 +12,6 @@ const circleVariants = {
     },
   },
 }
-
-const MotionImage = motion(Image)
 
 const Circle = ({ courses }) => {
   const [circleCenter, setCircleCenter] = useState({
@@ -57,30 +55,32 @@ const Circle = ({ courses }) => {
 
             return (
               <Link key={course.id} href={`/courses/${course.slug}`}>
-                <MotionImage
-                  priority
-                  src={course.image.url}
-                  width={150}
-                  height={150}
-                  alt={course.name}
+                <motion.span
+                  className={`shadow-3xl absolute left-1/2 top-1/2
+                    flex h-[4.25rem] w-[4.25rem] 
+                    -translate-x-1/2 
+                    -translate-y-1/2 
+                    items-center
+                    justify-center overflow-hidden 
+                    rounded-full 
+                    shadow-xl hover:shadow-2xl dark:shadow-md
+                    dark:shadow-slate-100 
+                    dark:hover:shadow-md dark:hover:shadow-white md:h-24 md:w-24 lg:h-28 lg:w-28 xl:h-32 xl:w-32   
+                    ${course.name.includes('Next.JS') ? 'dark:bg-white' : ''}`}
                   style={{
                     top: `${y}px`,
                     left: `${x}px`,
                     transform: `translate(-50%, -50%) rotate(${angle}deg)`,
                   }}
-                  className={`shadow-3xl absolute left-1/2 top-1/2
-                 flex 
-                 h-[4.25rem] w-[4.25rem] -translate-x-1/2 
-                 -translate-y-1/2 items-center
-                  justify-center overflow-hidden 
-                   rounded-full 
-                   object-contain p-1 
-                   shadow-xl hover:shadow-2xl dark:shadow-md
-                   dark:shadow-slate-100 
-                   dark:hover:shadow-md dark:hover:shadow-white md:h-24 md:w-24 ${
-                     course.name.includes('Next.JS') ? 'dark:bg-white' : ''
-                   }`}
-                />
+                >
+                  <Image
+                    data={course.image.responsiveImage}
+                    width={150}
+                    height={150}
+                    alt={course.name}
+                    className='h-full w-full rounded-full object-contain p-1'
+                  />
+                </motion.span>
               </Link>
             )
           })}

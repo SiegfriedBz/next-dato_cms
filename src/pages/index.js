@@ -1,9 +1,9 @@
 import Link from 'next/link'
+import Head from 'next/head'
 import { gql } from 'graphql-request'
 import { performRequest } from '@/lib/dato'
 import Circle from '@/components/Circle'
 import { AnimatedText } from '@/components/AnimatedText'
-import Head from 'next/head'
 
 const meta = {
   title: 'WebWizzards | Home',
@@ -85,6 +85,18 @@ const coursesShortQuery = gql`
       image {
         id
         url
+        responsiveImage(
+          imgixParams: { fit: crop, w: 150, h: 150, auto: format }
+        ) {
+          src
+          width
+          height
+          # blur-up placeholder, JPEG format, base64-encoded, or...
+          base64
+          # background color placeholder
+          bgColor
+          sizes
+        }
       }
     }
   }

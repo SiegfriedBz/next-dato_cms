@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { gql } from 'graphql-request'
 import { performRequest } from '@/lib/dato'
-import Image from 'next/image'
+import { Image } from 'react-datocms'
 
 export default function Courses({ courses }) {
   return (
@@ -44,9 +44,7 @@ export default function Courses({ courses }) {
                     sm:col-span-2 sm:mt-0'
                 >
                   <Image
-                    src={course.image.url}
-                    width={150}
-                    height={150}
+                    data={course.image.responsiveImage}
                     alt={course.name}
                     className={`shadow-3xl h-full w-full rounded-full object-contain p-1 ${
                       course.name.includes('Next.JS') ? 'dark:bg-white' : ''
@@ -100,11 +98,17 @@ const allCoursesShortQuery = gql`
       slug
       image {
         id
-        url(imgixParams: { fm: jpg })
-        width
-        height
-        colors {
-          hex
+        responsiveImage(
+          imgixParams: { fit: crop, w: 300, h: 300, auto: format }
+        ) {
+          src
+          width
+          height
+          # blur-up placeholder, JPEG format, base64-encoded, or...
+          base64
+          # background color placeholder
+          bgColor
+          sizes
         }
       }
       courseAuthor {

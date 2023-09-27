@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { performRequest } from '@/lib/dato'
 import { gql } from 'graphql-request'
-import Image from 'next/image'
+import { Image } from 'react-datocms'
 import Link from 'next/link'
 
 const Authors = ({ authors }) => {
@@ -12,19 +12,13 @@ const Authors = ({ authors }) => {
   //     id: '202036873',
   //     name: 'Luigi',
   //     bio: { value: [Object] },
-  //     avatar: {
-  //       id: '73094490',
-  //       url: 'https://www.datocms-assets.com/106424/1695636556-luigi.jpeg'
-  //     }
+  //
   //   },
   //   {
   //     id: '202036870',
   //     name: 'Mario',
   //     bio: { value: [Object] },
-  //     avatar: {
-  //       id: '73094491',
-  //       url: 'https://www.datocms-assets.com/106424/1695636561-mario.jpeg'
-  //     }
+  //
   //   }
   // ]
 
@@ -43,11 +37,9 @@ const Authors = ({ authors }) => {
           >
             <h1 className='text-bold text-3xl'>{author.name}</h1>
             <Image
-              width={75}
-              height={75}
-              src={author.avatar.url}
+              data={author.avatar.responsiveImage}
               alt={author.name}
-              className='rounded-full'
+              className='rounded-full p-5'
             />
             Bio
             <br />
@@ -72,7 +64,18 @@ const allAuthorsQuery = gql`
       }
       avatar {
         id
-        url
+        responsiveImage(
+          imgixParams: { fit: crop, w: 150, h: 150, auto: format }
+        ) {
+          src
+          width
+          height
+          # blur-up placeholder, JPEG format, base64-encoded, or...
+          base64
+          # background color placeholder
+          bgColor
+          sizes
+        }
       }
     }
   }
