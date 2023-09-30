@@ -79,7 +79,7 @@ const Circle = ({ courses }) => {
                     bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
                     p-[0.025rem] shadow-2xl 
                      dark:shadow-sm
-                    dark:shadow-white md:h-24 md:w-24 lg:h-28
+                    dark:shadow-stone-100 md:h-24 md:w-24 lg:h-28
                     lg:w-28 xl:h-32
                     xl:w-32 
                   '
@@ -91,16 +91,16 @@ const Circle = ({ courses }) => {
                 >
                   <span
                     className={`
-                      shadow-3xl 
-                      flex h-full 
-                      w-full items-center 
-                      justify-center 
+                      flex 
+                      h-full w-full 
+                      items-center justify-center 
                       overflow-hidden 
-                      rounded-full bg-white 
-                      dark:bg-slate-950
+                      rounded-full 
+                      bg-stone-100 shadow-lg 
+                      dark:bg-slate-900
                       ${
                         course.name.includes('Next.JS')
-                          ? 'p-1 dark:bg-white dark:p-0'
+                          ? 'p-1 dark:bg-stone-100 dark:p-0'
                           : 'p-1'
                       }
                     `}

@@ -12,8 +12,8 @@ const Footer = () => {
     >
       <div
         className='flex h-full w-full flex-col items-center
-          justify-between bg-white
-          px-8 py-8 dark:bg-slate-950 sm:flex-row 
+          justify-between bg-stone-100
+          px-8 py-8 dark:bg-slate-900 sm:flex-row 
           sm:px-12 md:px-24 lg:px-12 xl:px-32'
       >
         <div

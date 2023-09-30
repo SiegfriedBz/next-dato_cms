@@ -38,14 +38,14 @@ const Logo = ({ setMobileMenuIsOpen }) => {
             h-full w-full 
             items-center justify-center
             rounded-full
-            dark:bg-slate-950'
+            dark:bg-slate-900'
         >
           <span
             className='inline-flex 
             h-full w-full 
             items-center justify-center
             text-2xl font-extrabold 
-            text-white
+            text-stone-100
               dark:bg-gradient-to-r
             dark:from-pink-500 dark:via-red-500 dark:to-yellow-500
               dark:bg-clip-text dark:text-transparent'

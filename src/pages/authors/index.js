@@ -33,7 +33,7 @@ const Authors = ({ authors }) => {
           <Link
             href={`/authors/${author.slug}`}
             key={author.id}
-            className='col-span-2 flex min-h-[280px] w-full flex-col items-center justify-start rounded-2xl border border-slate-950 p-4'
+            className='col-span-2 flex h-[280px] w-full flex-col items-center justify-start rounded-2xl border border-slate-900 p-4'
           >
             <h1 className='text-bold text-3xl'>{author.name}</h1>
             <Image

@@ -44,7 +44,7 @@ const Navbar = () => {
       <div
         className='sticky top-0 z-50 h-32 w-full
           font-medium opacity-100
-        dark:bg-slate-950 dark:text-white'
+        dark:bg-slate-900 dark:text-stone-100'
       >
         <div
           className='flex h-full w-full 
@@ -56,9 +56,9 @@ const Navbar = () => {
           <div
             className='flex 
               h-full w-full items-center justify-center
-            bg-white 
+            bg-stone-100 
               px-8 py-8
-            dark:bg-slate-950 
+            dark:bg-slate-900 
               sm:px-12 md:px-24 lg:px-12 xl:px-32'
           >
             <nav className='flex h-full w-full items-center justify-between'>
@@ -109,14 +109,14 @@ const Navbar = () => {
                   {isClient ? (
                     themeColor === 'light' ? (
                       <FontAwesomeIcon
-                        icon={faMoon}
-                        className='h-5 animate-pulse
+                        icon={faSun}
+                        className='h-5 animate-spin-slow
                             font-extrabold text-pink-500 lg:h-7'
                       />
                     ) : (
                       <FontAwesomeIcon
-                        icon={faSun}
-                        className='h-5 animate-spin-slow
+                        icon={faMoon}
+                        className='h-5 animate-pulse
                       font-extrabold text-yellow-500 lg:h-7'
                       />
                     )
@@ -235,7 +235,7 @@ const CustomLink = ({ As, title, ...rest }) => {
       {...attribute}
       className={`relative my-2 
         bg-clip-text text-center text-3xl
-        text-stone-100 dark:text-slate-950 
+        text-stone-100 dark:text-slate-900 
         lg:my-0 lg:text-lg ${isActive ? 'font-extrabold' : ''}`}
     >
       {title}

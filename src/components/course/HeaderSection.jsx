@@ -23,7 +23,7 @@ const HeaderSection = ({ detail }) => {
         })}
         <a
           href='#CoursePriceSectionRecord'
-          className='mt-5 rounded-3xl border-2 bg-amber-400 px-8 py-4 text-2xl font-extrabold text-white transition duration-500 ease-in-out hover:border-white hover:bg-amber-500'
+          className='mt-5 rounded-3xl border-2 bg-amber-400 px-8 py-4 text-2xl font-extrabold text-stone-100 transition duration-500 ease-in-out hover:border-stone-100 hover:bg-amber-500'
         >
           {detail.buttonText}
         </a>

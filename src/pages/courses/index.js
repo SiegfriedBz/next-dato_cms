@@ -21,17 +21,17 @@ export default function Courses({ courses }) {
               via-red-500 
               to-yellow-500 p-[0.2rem] hover:shadow-2xl dark:p-[0.025rem] 
               dark:shadow-sm dark:shadow-slate-100 dark:hover:shadow-md
-              dark:hover:shadow-white
+              dark:hover:shadow-stone-100
               sm:h-72'
           >
             <div
               className='col-span-1
                 h-full w-full items-center justify-center
                 rounded-2xl 
-                bg-white 
+                bg-stone-100 
                 shadow-xl
-                dark:bg-slate-950
-                dark:text-white'
+                dark:bg-slate-900
+                dark:text-stone-100'
             >
               <div className='grid h-full w-full grid-cols-4 items-center justify-center'>
                 <div
@@ -40,14 +40,14 @@ export default function Courses({ courses }) {
                     rounded-full p-5
                     shadow-xl group-hover:shadow-2xl dark:shadow-sm 
                     dark:shadow-slate-100 
-                    dark:group-hover:shadow-md dark:group-hover:shadow-white 
+                    dark:group-hover:shadow-md dark:group-hover:shadow-stone-100 
                     sm:col-span-2 sm:mt-0'
                 >
                   <Image
                     data={course.image.responsiveImage}
                     alt={course.name}
                     className={`shadow-3xl h-full w-full rounded-full object-contain p-1 ${
-                      course.name.includes('Next.JS') ? 'dark:bg-white' : ''
+                      course.name.includes('Next.JS') ? 'dark:bg-stone-100' : ''
                     }`}
                   />
                 </div>
@@ -57,9 +57,9 @@ export default function Courses({ courses }) {
                 >
                   <span
                     className='mx-auto inline-block
-                      w-full text-center text-xl font-bold text-slate-950/75
-                    group-hover:text-slate-950 dark:text-white/80
-                    dark:group-hover:text-white/90
+                      w-full text-center text-xl font-bold text-slate-900/75
+                    group-hover:text-slate-900 dark:text-stone-100/80
+                    dark:group-hover:text-stone-100/90
                       sm:text-2xl lg:text-xl xl:text-2xl 2xl:text-xl'
                   >
                     {course.smallTitle}
