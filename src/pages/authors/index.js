@@ -6,45 +6,75 @@ import Link from 'next/link'
 
 const Authors = ({ authors }) => {
   const router = useRouter()
-
-  // authors [
-  //   {
-  //     id: '202036873',
-  //     name: 'Luigi',
-  //     bio: { value: [Object] },
-  //
-  //   },
-  //   {
-  //     id: '202036870',
-  //     name: 'Mario',
-  //     bio: { value: [Object] },
-  //
-  //   }
-  // ]
+  console.log(authors[0]._allReferencingCourses)
+  // id: '202036870',
+  // name: 'Mario',
+  // slug: 'mario',
+  // bio: { value: [Object] },
+  // avatar: { id: '73782580', responsiveImage: [Object] },
+  // _allReferencingCourses: [ [Object], [Object], [Object], [Object] ]
 
   if (router.isFallback) {
     return <div>Loading...</div>
   }
 
   return (
-    <section id='authors' className='grid w-full grid-cols-4 md:gap-16'>
+    <section
+      id='authors'
+      className='flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-16'
+    >
       {authors.map((author) => {
         return (
-          <Link
-            href={`/authors/${author.slug}`}
+          <div
             key={author.id}
-            className='col-span-2 flex h-[280px] w-full flex-col items-center justify-start rounded-2xl border border-slate-900 p-4'
+            className='flex w-full
+            min-w-[18rem] max-w-[24rem] flex-col
+             items-center justify-center rounded-2xl bg-gradient-to-r from-pink-500 
+             via-red-500 
+             to-yellow-500 
+             p-4'
           >
-            <h1 className='text-bold text-3xl'>{author.name}</h1>
-            <Image
-              data={author.avatar.responsiveImage}
-              alt={author.name}
-              className='rounded-full p-5'
-            />
-            Bio
-            <br />
-            Courses
-          </Link>
+            <Link
+              href={`/authors/${author.slug}`}
+              className='flex w-full flex-col items-center gap-y-3'
+            >
+              <h1
+                className='text-bold bg-gradient-to-r
+                from-yellow-400 to-stone-50
+                 bg-clip-text
+                 text-3xl font-extrabold text-transparent md:text-5xl'
+              >
+                {author.name}
+              </h1>
+              <Image
+                data={author.avatar.responsiveImage}
+                alt={author.name}
+                className='rounded-full border border-stone-50 bg-stone-50/75 p-8 shadow-2xl dark:bg-slate-900/25'
+              />
+              <br />
+            </Link>
+            <div
+              className='flex
+                 w-full flex-col items-center 
+                 gap-y-3
+                 bg-gradient-to-r from-yellow-400 to-stone-50 bg-clip-text text-transparent'
+            >
+              <h2 className='text-bold text-2xl font-extrabold md:text-3xl'>
+                Courses
+              </h2>
+              {author._allReferencingCourses.map((course) => {
+                return (
+                  <Link
+                    className='text-bold text-lg font-extrabold md:text-xl'
+                    href={`/courses/${course.slug}`}
+                    key={course.id}
+                  >
+                    {course.name}
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
         )
       })}
     </section>
@@ -76,6 +106,11 @@ const allAuthorsQuery = gql`
           bgColor
           sizes
         }
+      }
+      _allReferencingCourses {
+        id
+        name
+        slug
       }
     }
   }
