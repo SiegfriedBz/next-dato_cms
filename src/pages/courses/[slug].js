@@ -116,12 +116,20 @@ const courseQuery = gql`
         id
         name
         slug
-        bio {
-          value
-        }
         avatar {
           id
-          url
+          responsiveImage(
+            imgixParams: { fit: crop, w: 150, h: 150, auto: format }
+          ) {
+            src
+            width
+            height
+            # blur-up placeholder, JPEG format, base64-encoded, or...
+            base64
+            # background color placeholder
+            bgColor
+            sizes
+          }
         }
       }
     }
