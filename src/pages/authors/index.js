@@ -6,13 +6,6 @@ import Link from 'next/link'
 
 const Authors = ({ authors }) => {
   const router = useRouter()
-  console.log(authors[0]._allReferencingCourses)
-  // id: '202036870',
-  // name: 'Mario',
-  // slug: 'mario',
-  // bio: { value: [Object] },
-  // avatar: { id: '73782580', responsiveImage: [Object] },
-  // _allReferencingCourses: [ [Object], [Object], [Object], [Object] ]
 
   if (router.isFallback) {
     return <div>Loading...</div>
@@ -89,9 +82,6 @@ const allAuthorsQuery = gql`
       id
       name
       slug
-      bio {
-        value
-      }
       avatar {
         id
         responsiveImage(
