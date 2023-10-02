@@ -46,7 +46,8 @@ export default function Courses({ courses }) {
                     rounded-full p-5
                     shadow-xl group-hover:shadow-2xl dark:shadow-sm 
                     dark:shadow-slate-100 
-                    dark:group-hover:shadow-md dark:group-hover:shadow-stone-100 
+                    dark:group-hover:shadow-md
+                     dark:group-hover:shadow-stone-100 
                     sm:col-span-2 sm:mt-0'
                   >
                     <Image
