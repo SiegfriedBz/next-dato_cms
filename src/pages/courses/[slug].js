@@ -25,7 +25,7 @@ const Course = ({ course }) => {
 
   return (
     <section id={`course-${course?.name}`} className=''>
-      {course?.OmniSection?.map((detail) => {
+      {course?.courseDetail?.map((detail) => {
         return (
           <OmniSection
             As={mapTypeNameToSection.get(detail.__typename)}

@@ -1,11 +1,5 @@
 const HeaderSection = ({ detail }) => {
-  // console.log('HeaderSection detail', detail)
-  // __typename: 'CourseHeaderSectionRecord',
-  // id: '201931615',
-  // bigTitle: 'Tailwind CSS',
-  // buttonText: 'Get the free course!',
-  // description: 'Simplify styling and create stunning, responsive websites with Tailwind CSS. Streamline your design process."\n',
-  // smallTitle: 'Getting Started  with'
+  console.log('HeaderSection detail', detail)
 
   const sentences = detail.description.split('.')
 

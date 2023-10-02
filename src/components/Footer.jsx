@@ -5,7 +5,7 @@ import { faHeartPulse } from '@fortawesome/free-solid-svg-icons'
 const Footer = () => {
   return (
     <footer
-      className='flex w-full bg-gradient-to-r 
+      className='flex bg-gradient-to-r
         from-pink-500 
         via-red-500 
         to-yellow-500 pt-[0.05rem] dark:pt-[0.025rem]'
