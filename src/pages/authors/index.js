@@ -3,6 +3,7 @@ import { performRequest } from '@/lib/dato'
 import { gql } from 'graphql-request'
 import { Image } from 'react-datocms'
 import Link from 'next/link'
+import { AnimatedText } from '@/components/AnimatedText'
 
 const Authors = ({ authors }) => {
   const router = useRouter()
@@ -12,64 +13,81 @@ const Authors = ({ authors }) => {
   }
 
   return (
-    <section
-      id='authors'
-      className='flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-16'
-    >
-      {authors.map((author) => {
-        return (
-          <div
-            key={author.id}
-            className='flex w-full
-            min-w-[18rem] max-w-[24rem] flex-col
-             items-center justify-center rounded-2xl bg-gradient-to-r from-pink-500 
-             via-red-500 
-             to-yellow-500 
-             p-4'
-          >
-            <Link
-              href={`/authors/${author.slug}`}
-              className='flex w-full flex-col items-center gap-y-3'
-            >
-              <h1
-                className='text-bold bg-gradient-to-r
-                from-yellow-400 to-stone-50
-                 bg-clip-text
-                 text-3xl font-extrabold text-transparent md:text-5xl'
-              >
-                {author.name}
-              </h1>
-              <Image
-                data={author.avatar.responsiveImage}
-                alt={author.name}
-                className='rounded-full border border-stone-50 bg-stone-50/75 p-8 shadow-2xl dark:bg-slate-900/25'
-              />
-              <br />
-            </Link>
+    <section id='authors'>
+      <AnimatedText
+        text='Authors'
+        className='text-center text-3xl lg:text-4xl'
+      />
+      <div className='flex flex-col flex-wrap items-center justify-center gap-8 md:flex-row md:gap-16'>
+        {authors.map((author) => {
+          return (
             <div
-              className='flex
+              key={author.id}
+              className='group flex min-w-[18rem]
+            max-w-[24rem] flex-col
+             items-center justify-start rounded-2xl bg-gradient-to-r from-pink-500 
+             via-red-500 
+             to-yellow-500 p-4 hover:shadow-xl dark:shadow-sm dark:shadow-slate-100
+             dark:hover:shadow-md
+             dark:hover:shadow-stone-100'
+            >
+              <Link
+                href={`/authors/${author.slug}`}
+                className='flex w-full flex-col 
+                items-center 
+                gap-y-3'
+              >
+                <h1
+                  className='text-bold transform
+                bg-gradient-to-r from-yellow-400
+                 to-stone-50 bg-clip-text
+                 text-3xl font-extrabold text-transparent
+                 transition-all duration-300 ease-in-out group-hover:scale-110 md:text-5xl'
+                >
+                  {author.name}
+                </h1>
+                <Image
+                  data={author.avatar.responsiveImage}
+                  alt={author.name}
+                  className='rounded-full 
+                    bg-stone-100/75 p-8 shadow-lg
+                      group-hover:shadow-xl
+                    dark:bg-slate-700/50 dark:shadow-sm
+                    dark:shadow-slate-100/75
+                    dark:group-hover:shadow-md 
+                    dark:group-hover:shadow-stone-100'
+                />
+                <br />
+              </Link>
+              <div
+                className='flex
                  w-full flex-col items-center 
                  gap-y-3
                  bg-gradient-to-r from-yellow-400 to-stone-50 bg-clip-text text-transparent'
-            >
-              <h2 className='text-bold text-2xl font-extrabold md:text-3xl'>
-                Courses
-              </h2>
-              {author._allReferencingCourses.map((course) => {
-                return (
-                  <Link
-                    className='text-bold text-lg font-extrabold md:text-xl'
-                    href={`/courses/${course.slug}`}
-                    key={course.id}
-                  >
-                    {course.name}
-                  </Link>
-                )
-              })}
+              >
+                {author?._allReferencingCourses.length > 0 && (
+                  <>
+                    <h2 className='text-bold text-2xl font-extrabold md:text-3xl'>
+                      Courses
+                    </h2>
+                    {author._allReferencingCourses.map((course) => {
+                      return (
+                        <Link
+                          className='text-bold text-lg font-extrabold md:text-xl'
+                          href={`/courses/${course.slug}`}
+                          key={course.id}
+                        >
+                          {course.name}
+                        </Link>
+                      )
+                    })}
+                  </>
+                )}
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </section>
   )
 }

@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 const textVariants = {
   hidden: {
     opacity: 0,
-    y: '26px',
+    y: '20px',
   },
   visible: {
     opacity: 1,
@@ -28,19 +29,29 @@ const wordVariants = {
 }
 
 export const AnimatedText = ({ text, className = '' }) => {
+  const router = useRouter()
+  const isHomePage = router.pathname === '/'
+  const gradientTextClass =
+    'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent'
+
   return (
     <motion.h1
       variants={textVariants}
       initial='hidden'
       animate='visible'
-      className={`overflow-hidden text-center sm:py-2 ${className} bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-3xl font-bold text-transparent lg:text-7xl`}
+      className={`mb-5 overflow-hidden text-center sm:py-2 ${
+        isHomePage ? gradientTextClass : ''
+      }
+        ${className}`}
     >
       {text.split(' ').map((word, idx) => {
         return (
           <motion.span
             key={idx}
             variants={wordVariants}
-            className='inline-block sm:pt-3'
+            className={`inline-block font-bold sm:pt-3 ${
+              !isHomePage ? gradientTextClass : ''
+            }`}
           >
             {word}&nbsp;
           </motion.span>

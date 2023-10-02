@@ -23,7 +23,7 @@ export const RootLayout = (props) => {
         <meta property='og:image' content={meta.socialUmageUrl} />
       </Head>
       <Navbar />
-      <main className='bg-stone-100 px-8 py-8 dark:bg-slate-900 dark:text-stone-100 sm:px-12 md:px-24 lg:px-12 xl:px-32'>
+      <main className='min-h-[76vh] bg-stone-100 px-8 py-6 dark:bg-slate-900 dark:text-stone-100 sm:px-12 md:px-24 lg:px-12 xl:px-32'>
         {children}
       </main>
       <Footer />

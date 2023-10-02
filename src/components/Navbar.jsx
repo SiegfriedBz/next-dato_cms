@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className='sticky top-0 z-50 h-32 w-full
+        className='sticky top-0 z-50 h-28 w-full
           font-medium opacity-100
         dark:bg-slate-900 dark:text-stone-100'
       >
@@ -62,7 +62,7 @@ const Navbar = () => {
               sm:px-12 md:px-24 lg:px-12 xl:px-32'
           >
             <nav className='flex h-full w-full items-center justify-between'>
-              <Link href='/' className='hidden sm:flex'>
+              <Link href='/' className='hidden md:flex'>
                 <span
                   className='bg-gradient-to-r
                   from-pink-500 via-red-500 to-yellow-500
@@ -80,7 +80,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuIsOpen((prev) => !prev)}
                 variants={burgerVariants}
                 animate={mobileMenuIsOpen ? 'open' : 'close'}
-                className='z-50 flex flex-col justify-center gap-2 lg:hidden'
+                className='z-50 flex flex-col justify-center gap-2 md:hidden'
               >
                 <span
                   className={`${

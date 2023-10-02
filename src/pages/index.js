@@ -36,7 +36,7 @@ export default function Home({ courses }) {
         >
           <AnimatedText
             text='Get instant access to all courses.'
-            className='mb-5 text-center lg:text-left'
+            className='text-center text-3xl lg:text-left lg:text-7xl'
           />
           <div className='my-1 ms-auto flex w-full items-center justify-center gap-4 lg:my-5 lg:justify-start lg:gap-8'>
             <Link
