@@ -24,12 +24,21 @@ const Authors = ({ authors }) => {
             <div
               key={author.id}
               className='group flex min-w-[18rem]
-            max-w-[24rem] flex-col
-             items-center justify-start rounded-2xl bg-gradient-to-r from-pink-500 
-             via-red-500 
-             to-yellow-500 p-4 hover:shadow-xl dark:shadow-sm dark:shadow-slate-100
-             dark:hover:shadow-md
-             dark:hover:shadow-stone-100'
+              max-w-[24rem] flex-col
+              items-center justify-start
+              rounded-2xl 
+              bg-gradient-to-r
+            from-pink-500 
+            via-red-500 
+            to-yellow-500
+              p-4
+              shadow-sm 
+            shadow-stone-100/75
+              hover:shadow-md
+            group-hover:shadow-stone-100/75 
+            dark:shadow-slate-100/50
+            dark:hover:shadow-slate-100/50
+            '
             >
               <Link
                 href={`/authors/${author.slug}`}
@@ -38,11 +47,16 @@ const Authors = ({ authors }) => {
                 gap-y-3'
               >
                 <h1
-                  className='text-bold transform
-                bg-gradient-to-r from-yellow-400
-                 to-stone-50 bg-clip-text
-                 text-3xl font-extrabold text-transparent
-                 transition-all duration-300 ease-in-out group-hover:scale-110 md:text-5xl'
+                  className='text-bold
+                  bg-gradient-to-r
+                from-yellow-400
+                to-stone-50
+                  bg-clip-text
+                  text-3xl font-extrabold
+                  text-transparent
+                  transition-all duration-300 ease-in-out
+                  group-hover:scale-110
+                  md:text-5xl'
                 >
                   {author.name}
                 </h1>
@@ -50,12 +64,22 @@ const Authors = ({ authors }) => {
                   data={author.avatar.responsiveImage}
                   alt={author.name}
                   className='rounded-full 
-                    bg-stone-100/75 p-8 shadow-lg
-                      group-hover:shadow-xl
-                    dark:bg-slate-700/50 dark:shadow-sm
-                    dark:shadow-slate-100/75
-                    dark:group-hover:shadow-md 
-                    dark:group-hover:shadow-stone-100'
+                  bg-stone-100/75
+                    p-8
+                    shadow-sm
+
+                    shadow-stone-100/75
+                    transition-all
+                    duration-300 
+                    ease-in-out
+             
+                  group-hover:shadow-md
+
+                  group-hover:shadow-stone-100/75
+                  dark:bg-slate-100/50 
+                  dark:shadow-slate-100/50
+                  group-hover:dark:shadow-slate-100/50
+                    '
                 />
                 <br />
               </Link>
